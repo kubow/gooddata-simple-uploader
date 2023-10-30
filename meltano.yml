@@ -1,0 +1,35 @@
+version: 1
+default_environment: dev
+project_id: 1f8c70f0-df1a-4a4d-9327-5224ab72d2c7
+environments:
+  - name: dev
+  - name: staging
+  - name: prod
+plugins:
+  extractors:
+    - name: tap-csv
+      variant: meltanolabs
+      pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+      config:
+        add_metadata_columns: true
+        files:
+          - entity: Employees
+            path: ./source.csv
+            keys:
+              - JoiningYear
+              - City
+              - PaymentTier
+              - Age
+            encoding: UTF-8
+  loaders:
+    - name: target-snowflake
+      variant: meltanolabs
+      pip_url: meltanolabs-target-snowflake
+      config:
+        account: gooddata
+        add_record_metadata: true
+        database: GOODDATA
+        user: GOODDATA
+        role: DEFAULT
+        warehouse: GOODDATA
+        default_target_schema: ${MELTANO_EXTRACT__LOAD_SCHEMA}
