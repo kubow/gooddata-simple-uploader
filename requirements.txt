@@ -18,7 +18,7 @@ filelock==3.12.4
 flatten-dict==0.4.2
 frozenlist==1.4.0
 greenlet==3.0.0
-idna==3.4
+idna==3.7
 importlib-resources==6.1.0
 Jinja2==3.1.4
 jsonschema==4.19.1
