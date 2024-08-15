@@ -42,7 +42,7 @@ python-ulid==1.1.0
 PyYAML==6.0.1
 questionary==2.0.1
 referencing==0.30.2
-requests==2.31.0
+requests==2.32.2
 rich==13.6.0
 rpds-py==0.10.6
 ruamel.yaml==0.17.21
